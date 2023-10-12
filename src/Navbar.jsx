@@ -4,11 +4,19 @@ import { FaBars } from 'react-icons/fa';
 import logo from './logo.svg';
 
 function Navbar() {
+  const linksContainerRef = useRef(null);
+  const linksRef = useRef(null);
+  const [showLinks, setShowLinks] = useState(false);
   const toggle = () => {
     setShowLinks(!showLinks);
   };
+  // object containing inline styles
+  const linkStyles = {
+    height: showLinks
+      ? `${linksRef.current.getBoundingClientRect().height}px`
+      : '0px',
+  };
 
-  const [showLinks, setShowLinks] = useState(false);
   return (
     <nav>
       <div className='nav-center'>
@@ -21,11 +29,11 @@ function Navbar() {
         {/* links-container class and div is important for it to work */}
 
         <div
-          className={
-            showLinks ? 'links-container show-container' : 'links-container'
-          }
+          className='links-container'
+          ref={linksContainerRef}
+          style={linkStyles}
         >
-          <ul className='links'>
+          <ul className='links' ref={linksRef}>
             {links.map((link) => {
               const { id, url, text } = link;
               return (
