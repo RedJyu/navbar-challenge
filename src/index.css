@@ -298,3 +298,15 @@ nav {
   color: var(--primary-500);
   padding-left: 1.5rem;
 }
+
+/* fixed way to add transition */
+.links-container {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.show-container {
+  /* 160px = height of links when visible */
+  height: 10rem;
+}

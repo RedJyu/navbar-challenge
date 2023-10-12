@@ -19,20 +19,23 @@ function Navbar() {
           </button>
         </div>
         {/* links-container class and div is important for it to work */}
-        {showLinks && (
-          <div className='links-container'>
-            <ul className='links'>
-              {links.map((link) => {
-                const { id, url, text } = link;
-                return (
-                  <li key={id}>
-                    <a href={url}>{text}</a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        )}
+
+        <div
+          className={
+            showLinks ? 'links-container show-container' : 'links-container'
+          }
+        >
+          <ul className='links'>
+            {links.map((link) => {
+              const { id, url, text } = link;
+              return (
+                <li key={id}>
+                  <a href={url}>{text}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </nav>
   );
