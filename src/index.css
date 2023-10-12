@@ -299,7 +299,7 @@ nav {
   padding-left: 1.5rem;
 }
 
-/* fixed way to add transition */
+/* fixed way to add transition
 .links-container {
   height: 0;
   overflow: hidden;
@@ -308,5 +308,11 @@ nav {
 
 .show-container {
   /* 160px = height of links when visible */
-  height: 10rem;
+/* height: 10rem; */
+/* } */
+
+/* dynamic */
+.links-container {
+  overflow: hidden;
+  transition: var(--transition);
 }
